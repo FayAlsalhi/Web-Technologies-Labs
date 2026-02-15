@@ -1,0 +1,33 @@
+*.log
+*.pot
+*.pyc
+__pycache__
+*.bak
+*.py[cod]
+*$py.class
+pip-log.txt
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Django
+**/migrations
+*.sqlite3
+db.sqlite3
+media/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# OS Files
+*.DS_Store
+.history
+
+# IDE
+.vscode/
+.idea/
