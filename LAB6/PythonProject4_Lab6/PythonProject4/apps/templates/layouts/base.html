@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Library Project{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block stylesheets %}{% endblock stylesheets %}
+</head>
+<body>
+    <nav style="background:#17a2b8;padding:10px 20px;">
+        <a href="/" style="color:white;text-decoration:none;font-weight:bold;font-size:18px;">Library</a>
+        &nbsp;&nbsp;
+        <a href="/books/search" style="color:white;text-decoration:none;">Search Books</a>
+    </nav>
+    <div style="padding:20px;">
+        {% block content %}{% endblock content %}
+    </div>
+</body>
+</html>

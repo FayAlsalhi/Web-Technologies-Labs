@@ -1,0 +1,38 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}Search results{% endblock title %}
+
+{% block content %}
+{# bookList: used after POST /books/search and by simple_query / complex_query #}
+<h2>Books</h2>
+
+{% if from_search %}
+<p>
+    Keyword: <strong>{{ keyword|default:"(empty)" }}</strong>
+    {% if search_in_title or search_in_author %}
+        — searched in:
+        {% if search_in_title %}Title{% endif %}
+        {% if search_in_title and search_in_author %} and {% endif %}
+        {% if search_in_author %}Author{% endif %}
+    {% else %}
+        — <em>no field selected (Title / Author checkboxes)</em>
+    {% endif %}
+</p>
+{% endif %}
+
+<ul style="list-style:none;padding:0;">
+    {% for book in books %}
+        {# Works for dicts from __getBooksList and for Book model instances #}
+        <li style="border:1px solid #ddd;padding:12px;margin-bottom:10px;border-radius:6px;">
+            <strong>ID:</strong> {{ book.id }}<br>
+            <strong>Title:</strong> {{ book.title }}<br>
+            <strong>Author:</strong> {{ book.author }}
+        </li>
+    {% empty %}
+        <li>No books to display.</li>
+    {% endfor %}
+</ul>
+
+<p><a href="/books/search">Back to search</a></p>
+{% endblock content %}
